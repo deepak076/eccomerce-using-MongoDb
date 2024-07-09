@@ -1,4 +1,3 @@
-// controllers\admin.js
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
@@ -93,7 +92,7 @@ exports.getProducts = (req, res, next) => {
 
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  Product.findByIdAndDelete(prodId)
+  Product.findByIdAndRemove(prodId)
     .then(() => {
       console.log('DESTROYED PRODUCT');
       res.redirect('/admin/products');
